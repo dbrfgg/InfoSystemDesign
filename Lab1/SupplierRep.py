@@ -1,66 +1,54 @@
-public class Supplier {
-    // Поля класса (инкапсулированы)
-    private int id;           // Уникальный идентификатор поставщика
-    private String name;      // Название поставщика
-    private String address;   // Адрес поставщика
-    private String phone;     // Телефон поставщика
+class Supplier:
+    def __init__(self, supplier_id: int, name: str, address: str, phone: str):
+        self.__id = supplier_id
+        self.__name = name
+        self.__address = address
+        self.__phone = phone
 
-    // Конструктор для инициализации объекта
-    public Supplier(int id, String name, String address, String phone) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.phone = phone;
-    }
+    # Getter and Setter for ID
+    @property
+    def id(self):
+        return self.__id
 
-    // Геттер для поля ID
-    public int getId() {
-        return id;
-    }
+    @id.setter
+    def id(self, value: int):
+        if value <= 0:
+            raise ValueError("ID must be a positive integer.")
+        self.__id = value
 
-    // Сеттер для поля ID
-    public void setId(int id) {
-        this.id = id;
-    }
+    # Getter and Setter for Name
+    @property
+    def name(self):
+        return self.__name
 
-    // Геттер для поля Name
-    public String getName() {
-        return name;
-    }
+    @name.setter
+    def name(self, value: str):
+        if not value.strip():
+            raise ValueError("Name cannot be empty.")
+        self.__name = value
 
-    // Сеттер для поля Name
-    public void setName(String name) {
-        this.name = name;
-    }
+    # Getter and Setter for Address
+    @property
+    def address(self):
+        return self.__address
 
-    // Геттер для поля Address
-    public String getAddress() {
-        return address;
-    }
+    @address.setter
+    def address(self, value: str):
+        if not value.strip():
+            raise ValueError("Address cannot be empty.")
+        self.__address = value
 
-    // Сеттер для поля Address
-    public void setAddress(String address) {
-        this.address = address;
-    }
+    # Getter and Setter for Phone
+    @property
+    def phone(self):
+        return self.__phone
 
-    // Геттер для поля Phone
-    public String getPhone() {
-        return phone;
-    }
+    @phone.setter
+    def phone(self, value: str):
+        if not value.strip():
+            raise ValueError("Phone cannot be empty.")
+        self.__phone = value
 
-    // Сеттер для поля Phone
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    def __str__(self):
+        return f"Supplier[ID={self.__id}, Name='{self.__name}', Address='{self.__address}', Phone='{self.__phone}']"
 
-    // Метод для представления объекта в виде строки
-    @Override
-    public String toString() {
-        return "Supplier{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
-    }
-}
