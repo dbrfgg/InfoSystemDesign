@@ -1,3 +1,5 @@
+from SupplierRep import Supplier
+
 class SupplierShort:
     """Класс, представляющий краткую версию поставщика."""
     def __init__(self, supplier: Supplier):
